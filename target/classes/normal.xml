@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="1e8a675c-b893-4c0c-a470-ad43c1072221" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="normalFlow" doc:id="38145918-2791-475a-be1c-5091af71a1a5" >
+		<http:listener doc:name="Listener" doc:id="af122b41-a1d9-4769-96e2-474c50a488f7" config-ref="HTTP_Listener_config" path="/git"/>
+		<logger level="INFO" doc:name="Logger" doc:id="3971b0e8-fd92-4896-8ea3-1c0c9563fed0" />
+		<ee:transform doc:name="Transform Message" doc:id="032be23c-e8e9-4a5d-8c77-01493612d996" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+   "m":"RCB"	
+}
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="b474aaae-3b4e-43e4-8a15-999ea37f734a" />
+	</flow>
+</mule>
