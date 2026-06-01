@@ -18,7 +18,8 @@ output application/json
 ---
 {
    "m":"RCB"	
-}]]></ee:set-payload>
+}
+]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="b474aaae-3b4e-43e4-8a15-999ea37f734a" />
