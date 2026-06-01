@@ -14,6 +14,7 @@
       "exportedPackages": [],
       "exportedResources": [
         "log4j2.xml",
+        "test",
         "application-types.xml",
         "normal.xml"
       ]

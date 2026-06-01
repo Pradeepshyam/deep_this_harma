@@ -14,11 +14,12 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<ee:transform doc:name="Transform Message" doc:id="032be23c-e8e9-4a5d-8c77-01493612d996" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
-output application/java
+output application/json
 ---
 {
-	
-}]]></ee:set-payload>
+   "m":"RCB"	
+}
+]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="b474aaae-3b4e-43e4-8a15-999ea37f734a" />
